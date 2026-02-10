@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Polygon Manager — Cetak Dokumen UIM Terminasi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-container">
+      <a href="https://ivanharry203.github.io/websitetelkomintern/web_mark_kordinat/dashboard.html" class="back-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Kembali
+      </a>
+      <div class="brand">Polygon Manager</div>
+    </div>
+    <nav class="nav">
+      <button class="nav-btn active" data-target="upload">Upload Polygon</button>
+      <button class="nav-btn" data-target="view">Lihat Data</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Upload Card -->
+    <section id="card-upload" class="card">
+      <h2>Upload Polygon</h2>
+
+      <div class="card-row">
+        <label class="file-label">
+          Pilih file KML
+          <input id="kmlInput" type="file" accept=".kml,application/vnd.google-earth.kml+xml" />
+        </label>
+
+        <div class="field">
+          <label for="namaJalan">Nama Jalan</label>
+          <input id="namaJalan" type="text" placeholder="Masukkan nama jalan..." />
+        </div>
+
+        <div class="actions">
+          <button id="btnUpload" class="btn" disabled>Upload ke Spreadsheet</button>
+          <a id="btnOpenSheet" class="btn link" href="#" target="_blank">Lihat Spreadsheet</a>
+        </div>
+      </div>
+
+      <div id="kmlPreview" class="preview">
+        <h3>Koordinat (dari file KML)</h3>
+        <pre id="coordsText">Belum ada file KML yang dipilih.</pre>
+      </div>
+
+      <div id="uploadStatus" class="status"></div>
+    </section>
+
+    <!-- View Card -->
+    <section id="card-view" class="card hidden">
+      <h2>Lihat Data</h2>
+
+      <div class="field">
+        <label for="searchInput">Cari Nama Jalan</label>
+        <input id="searchInput" type="search" placeholder="Ketik nama jalan..." autocomplete="off" />
+        <div id="suggestions" class="suggestions hidden"></div>
+      </div>
+
+      <div id="resultInfo" class="result-info"></div>
+
+      <div id="matchResults" class="preview">
+        <h3>Hasil Pencocokan</h3>
+        <pre id="matchesText">Belum ada hasil.</pre>
+      </div>
+      <button id="btnDownloadKml" class="btn" style="margin-top:10px;" disabled>Download KML</button>
+    </section>
+  </main>
+  
+
+  <footer class="footer">
+    <small>© Magang Industri 2025 UNTIDAR</small>
+  </footer>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
